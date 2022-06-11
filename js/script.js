@@ -11,21 +11,23 @@ async function getGames() {
 
     results = await response.json();
 
-    const games = results.all;
+    const games = results;
 
     resultsContainer.innerHTML = "";
 
     for (let i = 0; i < games.length; i++) {
-        console.log(games[i].title);
 
-        if (i === 10) {
+        if (i === 20) {
             break;
         }
 
-        resultsContainer.innerHTML += `<div class="result">${games[i].title}</div>`;
+        resultsContainer.innerHTML += `<a href="details.html?id${games[i].id}" class="card">
+                                       <img src="${games[i].thumbnail}" alt="${games[i].title}" />
+                                       <h2>${games[i].title}</h2>
+                                       <p>${games[i].platform}</p>
+                                       <p>${games[i].short_description}</p>
+                                       </div>`;
     }
-
-    //resultsContainer.innerHTML += `<div class="results">${results}</div>`;
 
 }
 
