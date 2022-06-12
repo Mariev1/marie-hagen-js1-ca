@@ -13,22 +13,31 @@ const proxy = "https://noroffcors.herokuapp.com/";
 
 const corsFix = proxy + url;
 
-const resultsContainer = document.querySelector(".results");
 
 async function getDetails() {
 
-        const response = await fetch(corsFix);
-        const details = await response.json();
+        try {
+                const response = await fetch(corsFix);
+                const details = await response.json();
+        
+                const gameDetails = details;
 
-        const gameDetails = details;
+                detailContainer.innerHTML = "";
+        
+        
+                detailContainer.innerHTML += `<img src="${gameDetails.thumbnail}" alt="${gameDetails.title}" />
+                                              <h2>${gameDetails.title}</h2>
+                                              <h3>Publisher: ${gameDetails.publisher}</h3>
+                                              <h3>Developer: ${gameDetails.developer}</h3>
+                                              <p>${gameDetails.description}</p>`   
+        }
+        catch(error) {
+                console.log(error);
+                detailContainer.innerHTML = "There seems to be an error"
+            }
+        
 
-        console.log(gameDetails);
-
-        detailContainer.innerHTML += `<img src="${gameDetails.thumbnail}" alt="${gameDetails.title}" />
-                                      <h2>${gameDetails.title}</h2>
-                                      <h3>Publisher: ${gameDetails.publisher}</h3>
-                                      <h3>Developer: ${gameDetails.developer}</h3>
-                                      <p>${gameDetails.description}</p>` 
+        
          
 }
 
