@@ -8,6 +8,10 @@ const id = params.get("id");
 
 console.log(id);
 
+/* When I console.log(id); it return null. I can't figure out how to fix it so i have hardcoded the link for the details page */
+
+console.log(id);
+
 const url = "https://www.freetogame.com/api/game?id=1";
 const proxy = "https://noroffcors.herokuapp.com/";
 
