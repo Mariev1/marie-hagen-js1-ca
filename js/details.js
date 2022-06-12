@@ -2,9 +2,11 @@ const detailContainer = document.querySelector(".detailscontainer");
 
 const queryString = document.location.search;
 
-const parameters = new URLSearchParams(queryString);
+const params = new URLSearchParams(queryString);
 
-const id = parameters.get("id");
+const id = params.get("id");
+
+console.log(id);
 
 const url = "https://www.freetogame.com/api/game?id=1";
 const proxy = "https://noroffcors.herokuapp.com/";

@@ -1,9 +1,9 @@
+const resultsContainer = document.querySelector(".results");
+
 const url = "https://www.freetogame.com/api/games";
 const proxy = "https://noroffcors.herokuapp.com/";
 
 const corsFix = proxy + url;
-
-const resultsContainer = document.querySelector(".results");
 
 async function getGames() {
     
